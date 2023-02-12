@@ -9,4 +9,4 @@ let salaries = {
     sum += salaries[key];
   }
   
-  alert(sum); // 390
+  alert(sum); 
