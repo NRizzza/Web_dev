@@ -10,9 +10,10 @@ const tasks = [];
 // клик по кнопке Добавить задачу
 
 dom.add.onclick = () =>{
-    const task = dom.new.value
-    if(task){ /*add is not empty*/ 
-        addTask()
+    const newTaskText = dom.new.value
+    if(newTaskText && isNotHaveTask(newTaskText, tasks)){ /*add is not empty*/ 
+        addTask(newTaskText);
+        dom.new.value = ''
     }
 }
 
@@ -26,6 +27,19 @@ function addTask(text){
         isFinished: false
     }
     tasks.push(task)
+    // console.log(tasks)
 
-    
+}
+// проверка на уникальность плана
+function isNotHaveTask(text, list){
+    let isNotHave = true
+
+    list.forEach((task) => {
+        if (task.text == text){
+            alert('there is already such a plan')
+            isNotHave = false
+        }
+    })
+
+    return isNotHave
 }
