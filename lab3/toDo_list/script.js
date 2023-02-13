@@ -38,7 +38,7 @@ function isNotHaveTask(text, list){
     let isNotHave = true
 
     list.forEach((task) => {
-        if (task.text == text){
+        if (task.text === text){
             alert('there is already such a plan')
             isNotHave = false
         }
@@ -62,7 +62,7 @@ function tasksRender(list){
         <div id="${task.id}" class="${cls}">
                     <label class="todo_checkbox">
                         <input type="checkbox" ${checked}>
-                        <div></div>
+                        <div class="todo_chechbox_div"></div>
                     </label>
                 <div class="todo_task_text">${task.text}</div>
                 <div class="todo_task_del">-</div>
@@ -74,4 +74,27 @@ function tasksRender(list){
                 
     })
     dom.tasks.innerHTML = htmlList /*генерация листа*/
+}
+
+// отслеживание клика по чекбоксу
+dom.tasks.onclick = (event) =>{
+    const target = event.target /*кликнутый бокс элемент*/
+    // console.log(target)
+    const isCheckBoxEl = target.classList.contains('todo_chechbox_div')
+    if(isCheckBoxEl){
+        const task = target.parentElement.parentElement
+        const taskId = task.getAttribute('id')
+        changeTaskSt(taskId,tasks)
+        tasksRender(tasks)
+         
+    }
+}
+
+// изменение статуса задачи
+function changeTaskSt(id, list){
+    list.forEach((task) =>{
+        if(task.id == id){
+            task.isFinished = !task.isFinished
+        }
+    })
 }
