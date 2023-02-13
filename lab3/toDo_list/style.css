@@ -1,0 +1,135 @@
+:root{
+    --accent: #EA5959;
+    --def: #f32727; /*цвет кнопки*/
+}
+
+/* убираем отступы и скроллинг */
+*{
+    margin: 0;
+    box-sizing:border-box;
+
+}
+
+body{
+    font-family: 'Nunito' , sans-serif, ;
+    background-color: var(--accent);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 32px;
+    font-size: 20px;
+    font-weight: 300;
+
+}
+
+.todo {
+    padding: 32px;
+    background-color: white;
+    width: 90%;
+    border-radius: 20px;
+
+}
+.todo_content{
+
+}
+.todo_title{
+
+}
+.todo_new{
+    --size:50px;
+    display: flex;
+    margin: 16px 0 32px;
+}
+.todo_new input{
+    margin-right: 18px;
+    font-size: 20px;
+    padding: 8px 16px;
+    height: var(--size);
+    border: 1px solid var(--def);
+    border-radius: 10px;
+    /*занимает все свободное пространство */
+    flex-grow: 1;
+
+
+}
+/* дублируем высоту и ширину для кнопки добавления */
+.todo_add,
+.todo_task_del{
+    cursor: pointer; /*кнопочка*/
+    text-align: center; /* текст по центру*/
+    width: var(--size);
+    height: var(--size);
+    line-height:calc(var(--size)*0.95);
+    border-radius: var(--size);
+    font-size: 35px;
+    font-weight: 200;
+    background-color: var(--accent);
+    color: antiquewhite;
+    border: 1px solid var(--def);
+
+}
+.todo_list{
+
+}
+.todo_task{
+    cursor: default;
+    --size:34px;
+    display: flex; /*в одну строку*/
+    min-height:var(--size); /*чтобы при наводе мышки текст не прыгала*/
+    align-items: center;
+    
+}
+.todo_task:hover .todo_task_del{
+    display: block;
+
+}
+.todo_task_finished .todo_task_text{
+    text-decoration: line-through;
+    color: var(--def);
+}
+.todo_checkbox{
+    margin-right: 16px;
+
+}
+.todo_checkbox input{
+   display: none; /*не видна галочка*/
+}
+.todo_checkbox input:checked+div{
+    background-color:var(--accent) ;
+}
+.todo_checkbox input:checked+div::after{
+    display: block;
+}
+.todo_checkbox div{
+    /* кнопочки с галочкой */
+    --size:28px;
+    cursor: pointer;
+    height: var(--size);
+    width: var(--size);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    position: relative;
+    color: antiquewhite;
+}
+.todo_checkbox div::after{
+    content: '✓';
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.todo_task_text{
+    font-size: 20px;
+
+}
+
+.todo_task_del{
+    display: none; /*изночально кннопки нет*/
+    margin-left: auto;
+    margin-right: 0;
+    line-height:calc(var(--size)*0.88); /*минус в центр*/
+    font-size:28px;
+}
