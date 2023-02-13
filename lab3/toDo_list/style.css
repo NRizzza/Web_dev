@@ -1,6 +1,6 @@
 :root{
     --accent: #EA5959;
-    --def: #f32727; /*цвет кнопки*/
+    --def: #6c6c6c; /*цвет кнопки*/
 }
 
 /* убираем отступы и скроллинг */
@@ -38,7 +38,7 @@ body{
 .todo_new{
     --size:50px;
     display: flex;
-    margin: 16px 0 32px;
+    margin: 16px 0 16px;
 }
 .todo_new input{
     margin-right: 18px;
@@ -69,6 +69,7 @@ body{
 
 }
 .todo_list{
+    margin-top: 15px;
 
 }
 .todo_task{
