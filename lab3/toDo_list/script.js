@@ -1,7 +1,8 @@
 const dom = {
     new: document.getElementById('new'),
     add: document.getElementById('add'),
-    tasks: document.getElementById('tasks')
+    tasks: document.getElementById('tasks'),
+    count: document.getElementById('count')
 }
 
 const tasks = [];
@@ -74,6 +75,8 @@ function tasksRender(list){
                 
     })
     dom.tasks.innerHTML = htmlList /*генерация листа*/
+
+    cntTasks(list)
 }
 
 // отслеживание клика по чекбоксу
@@ -81,12 +84,20 @@ dom.tasks.onclick = (event) =>{
     const target = event.target /*кликнутый бокс элемент*/
     // console.log(target)
     const isCheckBoxEl = target.classList.contains('todo_chechbox_div')
+    const isDeleteEl = target.classList.contains('todo_task_del')
     if(isCheckBoxEl){
         const task = target.parentElement.parentElement
         const taskId = task.getAttribute('id')
         changeTaskSt(taskId,tasks)
         tasksRender(tasks)
-         
+    }
+    if(isDeleteEl){
+        const task = target.parentElement
+        const taskId = task.getAttribute('id')
+        deleteTask(taskId, tasks)
+        tasksRender(tasks)
+
+
     }
 }
 
@@ -97,4 +108,20 @@ function changeTaskSt(id, list){
             task.isFinished = !task.isFinished
         }
     })
+}
+
+// delete plan
+function deleteTask(id, list){
+    list.forEach((task, idx) =>{
+        if(task.id==id){
+            list.splice(idx,1)
+            //  console.log(list)
+        }
+    })
+   
+}
+
+// cnt of tasks
+function cntTasks(list){
+    dom.count.innerHTML = list.length
 }
