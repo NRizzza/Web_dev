@@ -1,4 +1,7 @@
-/* Global Styles */
+body{
+  background-color: #ffffff;
+}
+  /* Global Styles */
 
 * {
   font-family: 'Roboto', Arial, sans-serif;
@@ -80,6 +83,15 @@ label {
   background-color: #1976d2;
   color: white;
   border: none;
+
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  height: auto;
+  width: auto;
+  
 }
 
 .button:hover, button:hover {
