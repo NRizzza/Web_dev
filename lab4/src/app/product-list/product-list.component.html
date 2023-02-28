@@ -22,8 +22,12 @@
 
   <p *ngIf="product.description">Description: {{ product.description }}</p>
   <p *ngIf="product.price">Price: {{ product.price }}</p>
+  <p *ngIf="product.likes">Likes: {{ product.likes }}</p>
+
 
   <button type="button" (click)="share(product.name, product.url)">Share</button>
+  <button type="button" (click)="increaseLikes(product.name)">❤️</button>
+  <button type="button" (click)="deleteItem(product.id)">🗑️</button>
 </div>
 
 
