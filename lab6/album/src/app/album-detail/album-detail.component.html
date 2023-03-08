@@ -1,1 +1,12 @@
-<p>album-detail works!</p>
+<div *ngIf="loaded" class="container">
+    <div class="action-fields">
+      <fieldset>
+        <input type="text" [(ngModel)]="newTitle" placeholder="Type in new album title">
+        <button (click)="updateAlbumTitle()">Save</button>
+      </fieldset>
+    </div>
+    <h2>Album# {{album.id}}</h2>
+    <h3>{{album.title}}</h3>
+    <a routerLink="/albums/{{album.id}}/photos" id="photos-link">PHOTOS</a>
+  </div>
+  
