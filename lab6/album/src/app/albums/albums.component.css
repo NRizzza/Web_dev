@@ -1,0 +1,18 @@
+li{
+    list-style: none;
+}
+
+a{ 
+    text-decoration: none;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li{
+    width: 200px;
+    height: 200px;
+}
+
