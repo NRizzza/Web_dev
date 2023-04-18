@@ -1,0 +1,19 @@
+<h1>Vacancies</h1>
+
+<div class="box">
+  <div class="cont" *ngFor="let vacancy of vacancies">
+    <div class="right">
+      <p *ngIf="vacancy.name">
+        Name: {{ vacancy.name }}
+      </p>
+
+      <p *ngIf="vacancy.description">
+        Description: {{ vacancy.description }}
+      </p>
+
+      <p *ngIf="vacancy.salary">
+        price: {{ vacancy.salary }}
+      </p>
+    </div>
+  </div>
+</div>
